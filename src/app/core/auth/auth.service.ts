@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { UserService } from '../user/user.service';
 
-
-
-const API_URL= 'http://localhost:3000';
+const API_URL = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
@@ -14,29 +12,20 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private userService: UserService
-    ){}
+    private userService: UserService) { }
 
-  authenticate(userName:String, password:string){
+  authenticate(userName: string, password: string) {
 
     return this.http
       .post(
-         API_URL + '/user/login',
-        {userName,password},
-        {observe:'response'}
+        API_URL + '/user/login', 
+        { userName, password }, 
+        { observe: 'response'} 
       )
-      .pipe(tap(res=>{
-        const authToken=res.headers.get('x-access-token');
-        
+      .pipe(tap(res => {
+        const authToken = res.headers.get('x-access-token');
         this.userService.setToken(authToken);
-
-
-        window.localStorage.setItem('sabor', 'morango');
-        console.log(`User ${userName} authenticated with token ${authToken}`)
-        
-      }))
-
-
-
+        console.log(`User ${userName} authenticated with token ${authToken}`);
+      }));
   }
 }

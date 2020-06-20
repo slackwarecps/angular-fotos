@@ -1,14 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector:'ap-vmessage',
-    templateUrl:'./vmessage.component.html'
+    selector: 'ap-vmessage',
+    templateUrl: './vmessage.component.html'
 })
-export class VMessageComponent{
-    @Input()
-    text='';
+export class VMessageComponent {
 
-
-    
-
-}
+    @Input() text = '';
+ }
