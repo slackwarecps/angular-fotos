@@ -12,7 +12,7 @@ const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'home'
+        redirectTo: 'home',
     },
     { 
         path: 'home',
@@ -25,7 +25,7 @@ const routes: Routes = [
         resolve: {
             photos: PhotoListResolver
         },
-        data: { 
+        data: {
             title: 'Timeline'
         }
     },
@@ -33,17 +33,23 @@ const routes: Routes = [
         path: 'p/add', 
         component: PhotoFormComponent,
         canActivate: [AuthGuard],
-        data: { 
-            title: 'Photo Upload'
+        data: {
+            title: 'Photo upload'
         }
     },
     { 
         path: 'p/:photoId', 
         component: PhotoDetailsComponent,
+        data: {
+            title: 'Photo detail'
+        }
     }, 
     { 
         path: 'not-found', 
-        component: NotFoundComponent 
+        component: NotFoundComponent,
+        data: {
+            title: 'Not found'
+        }
     },     
     { 
         path: '**', 

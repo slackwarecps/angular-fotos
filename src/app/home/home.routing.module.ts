@@ -16,15 +16,15 @@ const routes: Routes = [
             { 
                 path: '',
                 component: SignInComponent,
-                data: { 
-                    title: 'Sign In'
+                data: {
+                    title: 'Sign in'
                 }
             }, 
             { 
                 path: 'signup',
                 component: SignUpComponent,
-                data: { 
-                    title: 'Sing Up'
+                data: {
+                    title: 'Sign up'
                 }
             },            
         ]
